@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      HTML Templates Unveiled: From Static to Dynamic Web Experiences
+    </title>
+  </head>
+  <body>
+    <h1>Real Estate List</h1>
+
+    <template id="realEstateTemplate">
+      <ul>
+        <li>
+          <strong>Size:</strong> <span class="realEstatePrice"></span>
+          <br />
+          <strong>Price:</strong> <span class="realEstateDescription"></span>
+          <br />
+          <strong>Description:</strong> <span class="realEstateSize"></span>
+          <br />
+        </li>
+      </ul>
+    </template>
+
+    <div id="realEstateContainer"></div>
+  </body>
+</html>
