@@ -1,26 +1,22 @@
-const realEstateContainer = document.querySelector("#realEstateContainer");
+const productContainer = document.querySelector("#productContainer");
 
-const realEstateTemplate = document.querySelector(
-  "#realEstateTemplate"
-).content;
+const productTemplate = document.querySelector("#productTemplate").content;
 
 function duplicateTemplate(template, container) {
-  fetch("./data/houses.json")
+  fetch("https://kea-alt-del.dk/t7/api/products")
     .then((response) => response.json())
     .then((data) => {
-      data.houses.forEach((house) => {
-        const realEstateItem = template.cloneNode(true);
+      data.forEach((product) => {
+        const templateClone = template.cloneNode(true);
 
-        realEstateItem.querySelector(".realEstatePrice").textContent =
-          house.size_sqft;
-        realEstateItem.querySelector(".realEstateDescription").textContent =
-          house.price;
-        realEstateItem.querySelector(".realEstateSize").textContent =
-          house.description;
+        templateClone.querySelector(".category").textContent = product.category;
+        templateClone.querySelector(".price").textContent = product.price;
+        templateClone.querySelector(".brand").textContent = product.brandname;
 
-        container.appendChild(realEstateItem);
+        container.appendChild(templateClone);
       });
-    });
+    })
+    .catch((error) => console.log(error));
 }
 
-duplicateTemplate(realEstateTemplate, realEstateContainer);
+duplicateTemplate(productTemplate, productContainer);
