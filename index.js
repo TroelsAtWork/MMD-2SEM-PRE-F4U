@@ -1,5 +1,4 @@
 const productContainer = document.querySelector("#productContainer");
-
 const productTemplate = document.querySelector("#productTemplate").content;
 
 function duplicateTemplate(template, container) {
@@ -12,6 +11,9 @@ function duplicateTemplate(template, container) {
         templateClone.querySelector(".category").textContent = product.category;
         templateClone.querySelector(".price").textContent = product.price;
         templateClone.querySelector(".brand").textContent = product.brandname;
+        templateClone
+          .querySelector("#seemore")
+          .setAttribute("href", `details.html?productid=${product.id}`);
 
         container.appendChild(templateClone);
       });
