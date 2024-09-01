@@ -3,7 +3,7 @@ h1 {
 }
 
 ul {
-  list-style: none; /* Remove default bullets */
+  list-style: none;
   padding: 0;
   margin: 10px;
 }
@@ -12,15 +12,15 @@ li {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background-color: #e2e8f0; /* White background for cleanliness */
-  padding: 15px 20px; /* Consistent padding */
-  margin-bottom: 15px; /* Space between items */
-  border-radius: 10px; /* Slightly rounded corners */
-  font-family: sans-serif; /* Clean, readable font */
+  background-color: #e2e8f0;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-family: sans-serif;
 }
 
 .realEstatePrice,
 .realEstateDescription,
 .realEstateSize {
-  margin-bottom: 4px; /* Consistent spacing between items */
+  margin-bottom: 4px;
 }
