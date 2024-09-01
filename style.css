@@ -11,6 +11,7 @@ ul {
 li {
   display: flex;
   flex-direction: column;
+  gap: 5px;
   background-color: #e2e8f0; /* White background for cleanliness */
   padding: 15px 20px; /* Consistent padding */
   margin-bottom: 15px; /* Space between items */
