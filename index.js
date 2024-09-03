@@ -1,8 +1,26 @@
+const categoryList = document.querySelector("#categoryList");
+
+fetch("https://kea-alt-del.dk/t7/api/categories")
+  .then((response) => response.json())
+  .then((categories) => {
+    categories.forEach((category) => {
+      categoryList.innerHTML += `<li><a href="?category=${category.category}"=>${category.category}</a></li>`;
+    });
+  });
+
 const productContainer = document.querySelector("#productContainer");
 const productTemplate = document.querySelector("#productTemplate").content;
+const params = new URLSearchParams(document.location.search);
+let url = undefined;
+
+if (params.has("category")) {
+  url = `https://kea-alt-del.dk/t7/api/products?category=${params.get("category")}`;
+} else {
+  url = "https://kea-alt-del.dk/t7/api/products";
+}
 
 function duplicateTemplate(template, container) {
-  fetch("https://kea-alt-del.dk/t7/api/products")
+  fetch(url)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((product) => {
