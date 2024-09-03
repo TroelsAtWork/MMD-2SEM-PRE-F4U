@@ -14,7 +14,7 @@ fetch("https://kea-alt-del.dk/t7/api/categories")
   });
 
 if (params.has("category")) {
-  url = "https://kea-alt-del.dk/t7/api/products?category=" + category;
+  url = `https://kea-alt-del.dk/t7/api/products?category=${category}`;
 } else {
   url = "https://kea-alt-del.dk/t7/api/products";
 }
