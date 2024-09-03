@@ -11,9 +11,10 @@ function duplicateTemplate(template, container) {
         templateClone.querySelector(".category").textContent = product.category;
         templateClone.querySelector(".price").textContent = product.price;
         templateClone.querySelector(".brand").textContent = product.brandname;
-        templateClone
-          .querySelector("#seemore")
-          .setAttribute("href", `details.html?productid=${product.id}`);
+        templateClone.querySelector("#seemore").setAttribute("href", `details.html?productid=${product.id}`);
+        if (product.soldout) {
+          templateClone.querySelector("#soldoutLabel").classList.add("soldout");
+        }
 
         container.appendChild(templateClone);
       });

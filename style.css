@@ -1,5 +1,10 @@
-h1 {
+h1,
+h2 {
   text-align: center;
+}
+
+p {
+  margin-top: 0;
 }
 
 ul {
@@ -23,4 +28,22 @@ li {
 .realEstateDescription,
 .realEstateSize {
   margin-bottom: 4px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+.soldout {
+  display: block;
+  align-self: flex-start;
+  background-color: tomato;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }

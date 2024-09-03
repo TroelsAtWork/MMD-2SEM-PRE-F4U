@@ -5,24 +5,29 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      HTML Templates Unveiled: From Static to Dynamic Web Experiences
-    </title>
+    <title>HTML Templates Unveiled: From Static to Dynamic Web Experiences</title>
   </head>
   <body>
-    <h1>Product List</h1>
+    <h1>Cateogries</h1>
+    <ul id="categoryList"></ul>
+    <h2>Product List</h2>
 
     <template id="productTemplate">
-      <ul>
-        <li>
-          <strong>Category:</strong> <span class="category"></span>
-          <strong>Price:</strong> <span class="price"></span>
-          <strong>Brand:</strong> <span class="brand"></span>
-          <a id="seemore" href="">See more</a>
-        </li>
-      </ul>
+      <li>
+        <div class="flex">
+          <div>
+            <p><strong>Category:</strong> <span class="category"></span></p>
+            <p><strong>Price:</strong> <span class="price"></span></p>
+            <p><strong>Brand:</strong> <span class="brand"></span></p>
+            <a id="seemore" href="">See more</a>
+          </div>
+          <div id="soldoutLabel" class="hidden">UDSOLGT</div>
+        </div>
+        <img src="" />
+      </li>
     </template>
+
     <!-- TEMPLATE REANDER CONTAINER -->
-    <section id="productContainer"></section>
+    <ul id="productContainer"></ul>
   </body>
 </html>
