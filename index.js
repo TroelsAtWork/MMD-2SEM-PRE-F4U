@@ -33,6 +33,9 @@ function duplicateTemplate(template, container) {
         templateClone
           .querySelector("img")
           .setAttribute("src", `https://kea-alt-del.dk/t7/images/jpg/640/${product.id}.jpg`);
+        if (product.soldout) {
+          templateClone.querySelector("#soldoutLabel").classList.add("soldout");
+        }
 
         container.appendChild(templateClone);
       });
