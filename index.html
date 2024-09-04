@@ -12,19 +12,22 @@
   <body>
     <h1>Real Estate List</h1>
 
-    <template id="realEstateTemplate">
-      <ul>
-        <li>
-          <strong>Size:</strong> <span class="realEstatePrice"></span>
-          <br />
-          <strong>Price:</strong> <span class="realEstateDescription"></span>
-          <br />
-          <strong>Description:</strong> <span class="realEstateSize"></span>
-          <br />
-        </li>
-      </ul>
+    <template id="productTemplate">
+      <li>
+        <div class="flex">
+          <div>
+            <p><strong>Category:</strong> <span class="category"></span></p>
+            <p><strong>Price:</strong> <span class="price"></span></p>
+            <p><strong>Brand:</strong> <span class="brand"></span></p>
+            <a id="seemore" href="">See more</a>
+          </div>
+          <div id="soldoutLabel" class="hidden">UDSOLGT</div>
+        </div>
+        <img src="" />
+      </li>
     </template>
 
-    <div id="realEstateContainer"></div>
+    <!-- TEMPLATE RENDER CONTAINER -->
+    <ul id="productContainer"></ul>
   </body>
 </html>
