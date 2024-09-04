@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      HTML Templates Unveiled: From Static to Dynamic Web Experiences
+    </title>
+  </head>
+  <body>
+    <h1>Real Estate List</h1>
+
+    <template id="productTemplate">
+      <li>
+        <div class="flex">
+          <div>
+            <p><strong>Category:</strong> <span class="category"></span></p>
+            <p><strong>Price:</strong> <span class="price"></span></p>
+            <p><strong>Brand:</strong> <span class="brand"></span></p>
+            <a id="seemore" href="">See more</a>
+          </div>
+          <div id="soldoutLabel" class="hidden">UDSOLGT</div>
+        </div>
+        <img src="" />
+      </li>
+    </template>
+
+    <!-- TEMPLATE RENDER CONTAINER -->
+    <ul id="productContainer"></ul>
+  </body>
+</html>
