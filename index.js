@@ -1,26 +1,43 @@
-const realEstateContainer = document.querySelector("#realEstateContainer");
+const productContainer = document.querySelector("#productContainer");
+const productTemplate = document.querySelector("#productTemplate").content;
+const categoryList = document.querySelector("#categoryList");
+const params = new URLSearchParams(document.location.search);
+const category = params.get("category");
+let url = undefined;
 
-const realEstateTemplate = document.querySelector(
-  "#realEstateTemplate"
-).content;
-
-function duplicateTemplate(template, container) {
-  fetch("./data/houses.json")
-    .then((response) => response.json())
-    .then((data) => {
-      data.houses.forEach((house) => {
-        const realEstateItem = template.cloneNode(true);
-
-        realEstateItem.querySelector(".realEstatePrice").textContent =
-          house.size_sqft;
-        realEstateItem.querySelector(".realEstateDescription").textContent =
-          house.price;
-        realEstateItem.querySelector(".realEstateSize").textContent =
-          house.description;
-
-        container.appendChild(realEstateItem);
-      });
+fetch("https://kea-alt-del.dk/t7/api/categories")
+  .then((response) => response.json())
+  .then((categories) => {
+    categories.forEach((category) => {
+      categoryList.innerHTML += `<li><a href="index.html?category=${category.category}">${category.category}</a></li>`;
     });
+  });
+
+if (params.has("category")) {
+  url = `https://kea-alt-del.dk/t7/api/products?category=${category}`;
+} else {
+  url = "https://kea-alt-del.dk/t7/api/products";
 }
 
-duplicateTemplate(realEstateTemplate, realEstateContainer);
+function duplicateTemplate(template, container) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((product) => {
+        const templateClone = template.cloneNode(true);
+
+        templateClone.querySelector(".category").textContent = product.category;
+        templateClone.querySelector(".price").textContent = product.price;
+        templateClone.querySelector(".brand").textContent = product.brandname;
+        templateClone.querySelector("#seemore").setAttribute("href", `details.html?productid=${product.id}`);
+        templateClone
+          .querySelector("img")
+          .setAttribute("src", `https://kea-alt-del.dk/t7/images/jpg/640/${product.id}.jpg`);
+
+        container.appendChild(templateClone);
+      });
+    })
+    .catch((error) => console.log(error));
+}
+
+duplicateTemplate(productTemplate, productContainer);
